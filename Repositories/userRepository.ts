@@ -8,9 +8,9 @@ class userRepository {
     /* Registrar usuarios a la base de datos, correspondiendo a los espacios que hay en la BD */
     static async add(user: user) {
         try {
-            const sql = `INSERT INTO user (name, lastName, identityNumber, email, password, age, phoneNumber, address) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
-            const values = [user.name, user.lastName, user.identityNumber, user.email, user.password, user.age, user.phoneNumber, user.address];
+            const sql = `INSERT INTO user (name, lastName, identityNumber, email, password, age, phoneNumber, address, role) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+            const values = [user.name, user.lastName, user.identityNumber, user.email, user.password, user.age, user.phoneNumber, user.address, user.role];
             const result = await db.execute(sql, values);
             return result[0];
         } catch (error) {
@@ -21,7 +21,7 @@ class userRepository {
     /* Se autentica la información guardada en la BD mediante el email que se envía en el cliente rest, teniendo en cuenta el hash que se crea al insertar la contraseña con el 
     hash ya creado con la contraseña que se guardo en la BD */
     static async login(auth: auth) {
-        const sql = `SELECT identityNumber, password from user WHERE email = ?`;
+        const sql = `SELECT identityNumber, password, role from user WHERE email = ?`;
         const values = [auth.email];
         const result: any = await db.execute(sql, values);
         if (result[0].length > 0) {

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 
+/* Se muestra el identityNumber con el que se creo en la autenticación */
 let profile = async (req: Request, res: Response) => {
     try {
         const identityNumber = req.body.identityNumber;

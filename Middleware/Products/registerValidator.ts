@@ -1,26 +1,32 @@
 import { check, validationResult } from 'express-validator';
 import { NextFunction, Request, Response } from "express";
 
+/* Validación de campos para registrar un producto */
 let validatorParams = [
     check('productCode')
-    .isLength({ min: 2, max: 10 })
-    .isAlphanumeric(),
+        .isLength({ min: 1, max: 10 })
+        .isAlphanumeric(),
 
     check('productName')
-    .isLength({ min: 3, max: 50 }),
+        .isLength({ min: 3, max: 50 }),
 
     check('productDescription')
-    .isLength({ min: 10, max: 255 }),
+        .isLength({ min: 10, max: 255 }),
 
     check('productCategory')
-    .isLength({ min: 1, max: 50 }),
+        .isLength({ min: 1, max: 50 }),
 
     check('productPrice')
-    .isNumeric()
-    .isInt({ min: 1 }),
+        .isNumeric()
+        .isInt({ min: 1 }),
 
     check('productQuantity')
-    .isInt({ min: 1 }),
+        .isInt({ min: 1 }),
+
+    check('role')
+        .isIn(['admin'])
+        .withMessage('El usuario debe de ser administrador.')
+
 ];
 
 function validator(req: Request, res: Response, next: NextFunction) {

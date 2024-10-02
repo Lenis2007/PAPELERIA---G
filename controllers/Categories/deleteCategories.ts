@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import categorieService from '../../Services/categoryServices';
 
-
+/* Se elimina la categoria mediante el codigo*/
 let deleteCategories = async (req: Request, res: Response) => {
     try {
         const { categoryCode } = req.params

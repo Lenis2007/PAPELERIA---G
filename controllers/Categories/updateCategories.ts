@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import category from "../../Dto/categoryDto";
 import categoryService from "../../Services/categoryServices";
 
-
+/* Campos o datos que se pueden cambiar en la categoria, teniendo en cuenta que el codigo se utilizará como parametro
+de ruta, utilizandola para encontrar el producto que se desea editar. */
 let updateCategory = async (req: Request, res: Response) => {
     try {
         const {

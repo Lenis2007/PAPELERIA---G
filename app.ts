@@ -10,6 +10,7 @@ dotenv.config();
 
 const app = express().use(bodyParser.json());
 
+/* Enlace para las rutas correspondientes */
 app.use('/user', user);
 app.use('/product', product);
 app.use('/category', category);

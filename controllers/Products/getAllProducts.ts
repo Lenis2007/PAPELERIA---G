@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import productService from "../../Services/productServices";
 
-
+/* Se visualizan todos los productos correspondiendo al repositorio */
 let getAllProducts = async (req: Request, res: Response) => {
   try {
     const products = await productService.all();

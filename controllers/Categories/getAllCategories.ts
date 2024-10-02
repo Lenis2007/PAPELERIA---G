@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import categoryService from "../../Services/categoryServices";
 
-
+/* Visualizar todas las categorias creadas mediante el repositorio correspondiente */
 let getAllCategories = async (req: Request, res: Response) => {
   try {
     const categories = await categoryService.all(); 

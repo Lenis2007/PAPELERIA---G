@@ -1,34 +1,13 @@
 import { check, param, validationResult } from 'express-validator';
 import { NextFunction, Request, Response } from "express";
 
-/* Validación para actualizar un producto, utilizando el codigo como parametro de ruta */
+/* Validación para visualizar todos los productos */
 let validatorParams = [
-
-    param('productCode')
-        .isLength({ min: 1, max: 10 })
-        .isAlphanumeric(),
-
-    check('productName')
-        .isLength({ min: 3, max: 50 }),
-
-    check('productDescription')
-        .isLength({ min: 10, max: 255 }),
-
-    check('productCategory')
-        .isLength({ min: 1, max: 50 }),
-
-    check('productPrice')
-        .isNumeric()
-        .isInt({ min: 1 }),
-
-    check('productQuantity')
-        .isInt({ min: 1 }),
-
     check('role')
         .isIn(['admin'])
         .withMessage('El usuario debe de ser administrador.')
-
 ];
+
 
 function validator(req: Request, res: Response, next: NextFunction) {
     const errors = validationResult(req);
@@ -37,6 +16,7 @@ function validator(req: Request, res: Response, next: NextFunction) {
     }
     next();
 }
+
 
 export default {
     validatorParams,

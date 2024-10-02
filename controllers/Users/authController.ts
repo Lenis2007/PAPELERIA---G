@@ -5,6 +5,8 @@ import GenerateToken from "../../Helpers/generateToken";
 import dotenv from "dotenv";
 dotenv.config();
 
+/* Se autentica el usuario, mediante el envio de los datos de email y password, generando un token para el
+identityNumber */
 let auth = async (req: Request, res: Response) => {
     try {
         const { email, password } = req.body;

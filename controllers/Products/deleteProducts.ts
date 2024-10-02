@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import productService from "../../Services/productServices";
 
-
+/* Se elimina un producto mediante el codigo como parametro de ruta */
 let deleteProducts = async (req: Request, res: Response) => {
     try {
         const { productCode } = req.params

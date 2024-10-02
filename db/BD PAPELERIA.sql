@@ -18,6 +18,7 @@ password varchar(255),
 age int,
 phoneNumber varchar(10),
 address varchar(100),
+role varchar(10),
 primary key (identityNumber)
 );
 

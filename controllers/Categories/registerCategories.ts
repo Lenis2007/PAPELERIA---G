@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import Category from "../../Dto/categoryDto";
 import categoryService from "../../Services/categoryServices"
 
-
+/* Datos que se deben ingresar para registrar a un nueva categoria, teniendo en cuenta el DTO creado y utilizando
+el servicio de esté */
 let registerCategory = async (req: Request, res: Response) => {
     try {
         const {

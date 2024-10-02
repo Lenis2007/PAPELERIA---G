@@ -7,6 +7,7 @@ class user {
     private _age: number;
     private _phoneNumber: number;
     private _address: string;
+    private _role: string;
 
     constructor(
         name: string,
@@ -16,7 +17,8 @@ class user {
         password: string,
         age: number,
         phoneNumber: number,
-        address: string) {
+        address: string,
+        role: string) {
         this._name = name;
         this._lastName = lastName;
         this._identityNumber = identityNumber;
@@ -25,6 +27,7 @@ class user {
         this._age = age;
         this._phoneNumber = phoneNumber;
         this._address = address;
+        this._role = role;
     }
 
     // Getters
@@ -60,6 +63,10 @@ class user {
         return this._address;
     }
 
+    get role(): string {
+        return this._role;
+    }
+
     // Setters
     set name(name: string) {
         this._name = name;
@@ -91,6 +98,10 @@ class user {
 
     set address(address: string) {
         this._address = address;
+    }
+
+    set role(role: string) {
+        this._role = role;
     }
 }
 

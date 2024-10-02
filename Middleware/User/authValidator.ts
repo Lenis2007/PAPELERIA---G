@@ -1,6 +1,7 @@
 import { check, validationResult } from 'express-validator';
 import { NextFunction, Request, Response } from "express";
 
+/* Se autentica el usuario con los datos correspondientes */
 let validatorParams = [
     check('email')
         .isLength({ max: 100 })

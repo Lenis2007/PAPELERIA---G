@@ -2,7 +2,8 @@ import { Request, Response } from "express";
 import Product from "../../Dto/productDto";
 import productService from "../../Services/productServices";
 
-
+/* Campos o datos que se pueden cambiar en el producto, teniendo en cuenta que el codigo se utilizará como parametro
+de ruta, utilizandola para encontrar el producto que se desea editar. */
 let updateProduct = async (req: Request, res: Response) => {
     try {
         const {      
