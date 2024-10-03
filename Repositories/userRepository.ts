@@ -27,11 +27,11 @@ class userRepository {
         if (result[0].length > 0) {
             const isPasswordValid = await bcrypt.compare(auth.password, result[0][0].password);
             if (isPasswordValid) {
-                return {logged: true, status: "Successful authentication", identityNumber: result[0][0].identityNumber}
+                return { logged: true, status: "Successful authentication", role: result[0][0].role, identityNumber: result[0][0].identityNumber }
             }
-            return {logged: false, status: "Invalid username or password"};
+            return { logged: false, status: "Invalid username or password" };
         }
-        return {logged: false, status: "Invalid username or password"};
+        return { logged: false, status: "Invalid username or password" };
     }
 }
 

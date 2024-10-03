@@ -14,7 +14,7 @@ let auth = async (req: Request, res: Response) => {
         if (login.logged) {
             return res.status(200).json({
                 status: login.status,
-                token: GenerateToken({identityNumber: login.identityNumber}, process.env.KEY_TOKEN, 60)
+                token: GenerateToken({ identityNumber: login.identityNumber, role: login.role }, process.env.KEY_TOKEN, 60)
             });
         }
         return res.status(401).json({

@@ -32,7 +32,7 @@ const verifyToken = async (req: Request, res: Response, next: NextFunction) => {
 
     try {
         let decoded = jwt.verify(token, process.env.KEY_TOKEN as string) as JwtPayload;
-        req.body.id = decoded.data.identityNumber;
+        req.body.identityNumber = decoded.data.identityNumber;
         req.body.role = decoded.data.role;
         next();
     } catch (error) {

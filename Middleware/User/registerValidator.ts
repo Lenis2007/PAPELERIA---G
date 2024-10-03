@@ -18,7 +18,7 @@ let validatorParams = [
 
     check('password')
         .isLength({ min: 8 })
-        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/),
+        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_-])[A-Za-z\d@$!%*?&]{8,}$/),
 
     check('confirmPassword').custom((value, { req }) => {
         if (value !== req.body.password) {
